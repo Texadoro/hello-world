@@ -1,0 +1,55 @@
+Sub HornetFinder()
+    'Create a variable to hold the number of hornets
+    Dim i As Integer
+
+    'Create a variable to hold the number of hornets
+    Dim HornetsCount As Integer
+    
+    'Create a variable to hold the number of bugs and bees
+    Dim BugsCount As Integer
+    Dim BeesCount As Integer
+    
+    'Set the value of Bugs and Bees counters
+    BugsCount = Range("L2").Value
+    BeesCount = Range("R2").Value
+    
+    'Set the initial valur for the HornetsCount to 0
+    HornetsCount = 0
+    
+    'Loop through rows
+    For i = 1 To 6
+        'Loop through columns
+        For j = 1 To 7
+    
+    'If the value of a cell is equal to Hornets
+    If Cells(i, j).Value = "Hornets" Then
+    'Add to the HornetsCounter
+    HornetsCount = HornetsCount + 1
+    
+    'Check if we have bugs available
+    If (BugsCount > 0) Then
+    'Replace the Hornets with Bugs
+    Cells(i, j).Value = "Bugs"
+    'Subtract from the BugsCount
+    BugsCount = BugsCount - 1
+    'Check if we have bees available
+    ElseIf (BeesCount > 0) Then
+    'Replace the Hornets with Bees
+    Cells(i, j).Value = "Bees"
+    'Subtract from the BeesCount
+    BeesCount = BeesCount - 1
+    
+    
+    End If
+    
+        Next j
+    Next i
+    
+    'Show the number of Hornets found
+    MsgBox (HornetsCount & "Hornets Found")
+    'Create the final message if we still have hornets
+    If (Range("L2").Value + Range("R2").Value < HornetsCount) Then
+    MsgBox ("Oh no! We still have hornets...")
+    
+    End If
+End Sub
