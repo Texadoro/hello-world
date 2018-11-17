@@ -1,0 +1,18 @@
+Sub CheckBoard()
+    Dim cellnumber As Integer
+    cellnumber = 1
+    For i = 1 To 8
+    For j = 1 To 8
+        
+        If (cellnumber Mod 2 = 0) Then
+        Cells(i, j).Interior.ColorIndex = 1
+        
+        Else
+        Cells(i, j).Interior.ColorIndex = 3
+    End If
+    cellnumber = cellnumber + 1
+    Next j
+    cellnumber = cellnumber + 1
+    Next i
+    
+End Sub
