@@ -1,0 +1,21 @@
+import os
+import csv
+
+cereal_csv = os.path.join("../Resources", "cereal.csv")
+
+#open and read csv
+with open (cereal_csv, newline=" ") as csvfile:
+	csvreader = csv.reader(csvfile, delimiter= ",")
+
+	csv_header = next(csvfile)
+	print(f"Header: {csv_header")
+
+	#read through each row of data afer the header
+	for row in csvreader:
+
+		#convert row to float and compare to grams of fiber	
+		if float(row[7]) >= 5:
+			print(row)
+
+
+
