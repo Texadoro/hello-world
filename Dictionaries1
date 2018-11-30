@@ -1,0 +1,17 @@
+# @TODO: Your code here
+
+me = {
+    "name": "Ron Mexico", 
+    "age": 35, 
+    "hobbies": [
+        "school",
+        "gym",
+        "coding"],
+    "wake-up": {"mon": 5, "tue": 6, "wed": 7}
+    }
+
+print(f'Hello I am {me["name"]} and I am {me["age"]}') 
+print(f'My hobbies include {len(me["hobbies"])}')
+
+
+
